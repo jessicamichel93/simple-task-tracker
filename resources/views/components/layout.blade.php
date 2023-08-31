@@ -1,3 +1,5 @@
+@props(['title'])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -5,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Simple Task Tracker</title>
+    <title>{{ $title }} </title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,12 +22,26 @@
 <body>
     <div class="bg-white">
         <x-navigation>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">View tasks</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Add new task</a>
+            <a href="{{ URL::route('overview') }}" class="text-sm font-semibold leading-6 text-gray-900">View
+                tasks</a>
+            <a href="{{ URL::route('create-task') }}" class="text-sm font-semibold leading-6 text-gray-900">Add new
+                task</a>
         </x-navigation>
 
-        <x-tasklist>
-        </x-tasklist>
+        <div class="mx-auto max-w-2xl space-y-16 sm:py-48 lg:py-56">
+
+            <div class="text-center">
+                <x-intro :title="$title">
+                </x-intro>
+            </div>
+
+
+            <div class="text-center">
+                {{ $slot }}
+            </div>
+
+        </div>
+
     </div>
 
 </body>
