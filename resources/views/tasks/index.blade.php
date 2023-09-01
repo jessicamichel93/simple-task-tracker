@@ -8,7 +8,7 @@
                 <li class="py-3 px-6 border-b border-gray-200 flex justify-between gap-2">
 
                     <div>
-                        {{ $task['title'] }}
+                        <span class="{{ isset($task['completed']) ? 'line-through' : '' }}">{{ $task['title'] }}</span>
 
                         @if (isset($task['completed']))
                             <span class="ml-2 rounded border border-gray-500 rounded-full text-gray-500 text-xs p-2">
