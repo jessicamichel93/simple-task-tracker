@@ -1,6 +1,5 @@
 <x-layout :title="'Overview Task Tracker'">
 
-
     @if (!empty($tasks))
 
         <ul class="border border-gray-300 rounded">
