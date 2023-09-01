@@ -22,9 +22,9 @@
 <body>
     <div class="bg-white">
         <x-navigation>
-            <a href="{{ URL::route('overview') }}" class="text-sm font-semibold leading-6 text-gray-900">View
+            <a href="{{ URL::route('tasks.index') }}" class="text-sm font-semibold leading-6 text-gray-900">View
                 tasks</a>
-            <a href="{{ URL::route('create-task') }}" class="text-sm font-semibold leading-6 text-gray-900">Add new
+            <a href="{{ URL::route('tasks.create') }}" class="text-sm font-semibold leading-6 text-gray-900">Add new
                 task</a>
         </x-navigation>
 
