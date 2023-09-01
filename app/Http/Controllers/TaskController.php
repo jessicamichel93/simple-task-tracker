@@ -38,4 +38,26 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')
             ->with('success', 'Task created successfully.');
     }
+
+    public function destroy($id)
+    {
+
+        $tasks = Session::get('tasks', []);
+
+        $index = array_search($id, array_column($tasks, 'id'));
+
+        if ($index !== false) {
+            array_splice($tasks, $index, 1);
+
+            Session::put('tasks', $tasks);
+
+            return redirect()->route('tasks.index')
+                ->with('success', 'Task deleted successfully.');
+        }
+
+        Session::put('tasks', $tasks);
+
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task deleted successfully.');
+    }
 }
