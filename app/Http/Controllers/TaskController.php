@@ -39,6 +39,23 @@ class TaskController extends Controller
             ->with('success', 'Task created successfully.');
     }
 
+    public function complete($id)
+    {
+        $tasks = Session::get('tasks', []);
+
+        foreach ($tasks as &$task) {
+            if ($task['id'] == $id) {
+                $task['completed'] = true;
+                break;
+            }
+        }
+
+        Session::put('tasks', $tasks);
+
+        return redirect()->route('tasks.index')
+            ->with('success', 'Task marked as completed.');
+    }
+
     public function destroy($id)
     {
 

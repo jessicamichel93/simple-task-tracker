@@ -18,4 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::post('/', [TaskController::class, 'store'])->name('tasks.store');
+
 Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+Route::post('/tasks/{id}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
